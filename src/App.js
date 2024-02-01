@@ -1,16 +1,37 @@
-import React from 'react'
-import Body from './components/Body'
-import { Provider } from 'react-redux'
-import appStore from './redux/store'
+import React from "react";
+import "./App.css";
+import Main from "./components/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FilteredProducts from "./components/FilteredProducts";
+import SingleProduct from "./components/SingleProduct";
+import Login from "./components/Login";
+import { useSelector } from "react-redux";
 
-const App = () => {
+function App() {
+  const user = useSelector((state) => state.auth.user);
+  const { authUser } = user;
+
   return (
-    <div >
-      <Provider store={appStore}>
-        <Body />
-      </Provider>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={authUser ? <Main></Main> : <Login></Login>}
+          ></Route>
+
+          <Route
+            path="/filteredProducts/:type"
+            element={<FilteredProducts></FilteredProducts>}
+          ></Route>
+          <Route
+            path="/filteredProducts/:type/:id"
+            element={<SingleProduct></SingleProduct>}
+          ></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
