@@ -1,8 +1,15 @@
 import React from 'react'
+import Body from './components/Body'
+import { Provider } from 'react-redux'
+import appStore from './redux/store'
 
 const App = () => {
   return (
-    <div className='font-alegreya'>App</div>
+    <div >
+      <Provider store={appStore}>
+        <Body />
+      </Provider>
+    </div>
   )
 }
 
