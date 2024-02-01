@@ -4,6 +4,8 @@ import Navbar from './Navbar'
 import Slider from './Slider'
 import Buttons from './Buttons'
 import FilteredProducts from './FilteredProducts'
+import ProductCard from './ProductCard'
+import Main from './Main'
 
 const Body = () => {
     const appRouter = createBrowserRouter([
@@ -15,9 +17,11 @@ const Body = () => {
   return (
     <div>
         <RouterProvider router={appRouter} />
-        <Navbar />
+        <Main />
+        {/* <Navbar />
         <Slider />
         <Buttons />
+        <ProductCard /> */}
     </div>
   )
 }

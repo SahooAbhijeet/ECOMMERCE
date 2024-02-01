@@ -3,7 +3,6 @@ import { Button } from "@material-tailwind/react";
 import clothes from "../assets/images/clothes.jpg";
 import { filterProducts } from "../redux/Slices/productSlice";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 const NavigateButtons = () => {
 
